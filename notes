@@ -1,0 +1,5 @@
+from home page with nav bar determine if user or admin
+direct to adimin veiw or user view. 
+
+1) write test view to render a template.
+2) make view that determines which template to render. 
