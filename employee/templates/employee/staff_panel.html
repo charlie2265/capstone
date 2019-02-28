@@ -1,1 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'employee:add_employee' %}">Add new new hire</a>
+<a href="{% url 'employee:remove_employee' %}">Remove</a>
+
 <h1>Staff Panel</h1>
+<h3> existing users<h3>
+{% for user in users %}
+<div>{{user.username}}</div>
+
+{% endfor %}
+{% endblock content %}
