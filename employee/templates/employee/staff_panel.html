@@ -2,21 +2,13 @@
 
 {% block content %}
 <a href="{% url 'employee:add_employee' %}">Add new new hire</a>
+<a href="{%url 'registration:home'%}"> home </a>
 
 {% comment %} create a form with a button to relmove existing users {% endcomment %}
 <h1>Staff Panel</h1>
-<h3> existing users</h3>
+<h3> existing users</h3> 
 
 {% for user in users %}
-{% comment %} 
-<form method="POST">
-{% csrf_token %}
-
-<div>{{user.username}}</div>
-
-<p> {{object.User}}</p>
-<button>del</button>
-</form> {% endcomment %}
 
 <div>
     <div>{{user.username}}</div>

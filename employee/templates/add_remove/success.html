@@ -2,14 +2,14 @@
 <body>
 
 {% block content %}
-<a href="{% url 'employee:add_employee' %}">Add new new hire</a>
-<a href="{% url 'employee:staff_panel' %}">Back to staff panel</a>
+    <a href="{% url 'employee:add_employee' %}">Add new new hire</a>
+    <a href="{% url 'employee:staff_panel' %}">Back to staff panel</a>
 
 <h1> Employee added </h1>
-{% if user.is_authenticated %}
-{{user.username}} is now alive
+{% comment %} {% if user.is_authenticated %} {% endcomment %}
+    {{user.username}} 
 
-{% endif %}
+{% comment %} {% endif %} {% endcomment %}
 {% endblock content %}
 </body>
 </html>

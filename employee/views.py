@@ -20,16 +20,13 @@ def add_employee(request):
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
         if form.is_valid():
-            form.save()
-            print(form)
-            return redirect('employee:success') 
+            user = form.save()
+            return render(request,'add_remove/success.html', {'user': user})
     else:
         form = UserCreateForm()
     
     return render(request, 'add_remove/add_employee.html', {'form': form}) 
         
-def success(request):
-    return render(request,'add_remove/success.html')
 
 class UserDeleteView(DeleteView):
     model = User
