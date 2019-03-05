@@ -11,7 +11,7 @@ Hello {{user.username}}
 {% else %}
 
 <p>You are not logged in<p>
-<a href="{%url 'login'%}">login</a>
+<a href="/accounts/login">login</a>
 {% endif %}
 
 {% endblock content %}

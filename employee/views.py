@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth import logout
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView
+from django.http import HttpResponse
+from .forms import UserCreateForm
+
 
 # Create your views here.
 def employee_panel(request):
@@ -8,15 +12,39 @@ def employee_panel(request):
 
 def staff_panel(request):
     users = User.objects.all()
-    # link to go to a submit user view 
-    # link to remove users
     return render(request, 'employee/staff_panel.html', {'users': users})    
 
     
 def add_employee(request):
     
-    return render(request, 'add_remove/add_employee.html') 
+    if request.method == 'POST':
+        form = UserCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print(form)
+            return redirect('employee:success') 
+    else:
+        form = UserCreateForm()
     
-def remove_employee(request):
+    return render(request, 'add_remove/add_employee.html', {'form': form}) 
+        
+def success(request):
+    return render(request,'add_remove/success.html')
+
+class UserDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy('employee:staff_panel')
+    template_name = 'employee/confirm_remove_employee.html'
+    context_object_name = 'user'
+
+
+     
+            
     
-    return render(request, 'add_remove/remove_employee.html')
+
+
+        
+
+
+
+    

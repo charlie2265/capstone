@@ -6,8 +6,17 @@
     <title></title>
 </head>
 <body>
-    <a href = "/accounts/login">logout</a>
-    {% block content %}
-    {% endblock content %}
+    <a href = '{%url "registration:sign_out"%}'>logout</a>
+{% block content %}
+{% if user.is_authenticated %}
+
+{{user.username}} is logged in
+
+{% else %}
+
+<p>You are not logged in<p>
+<a href="/accounts/login">login</a>
+{% endif %}
+{% endblock content %}
 </body>
 </html>

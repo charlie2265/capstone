@@ -1,11 +1,14 @@
- {% extends "base.html" %}
+ {% comment %} {% extends "base.html" %} {% endcomment %}
 
  {% block endblock %}Title{% endblock  %}
 
  {% block content %}
  
  <h1>Login</h1>
+{% if invalid  %}
+<div class='error'> Invalid username or password</div>
 
+{% endif %}
 <form method="post">
 {% csrf_token %}
 <input type="text" name="username">

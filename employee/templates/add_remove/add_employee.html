@@ -1,1 +1,13 @@
-<h3>submit users here</h3>
+{% extends "base.html" %}
+
+{% block content %}
+ 
+ <h1>Add employee</h1>
+
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+
+<button type="submit">Login</button>
+</form>
+ {% endblock  %}
