@@ -1,0 +1,88 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css);
+/* add_employee.html */
+
+.add-employee {
+    width: 50%;
+    margin-bottom: 5rem;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.add{
+    margin-top: 3rem;
+}
+
+.add-employee-info {
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+    
+}
+input{
+    margin-bottom: 3rem;
+}
+
+.back{
+    
+    background-color:#d2d4d8;
+    text-align: right;
+}
+.back-link {
+    color:#4a4a4a;
+    
+}
+
+nav{
+    background-color:#999a9e;
+     color:#4a4a4a
+     
+}
+
+/* staff_panel.html */
+.center-container {
+    background-color:#ADD8E6;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.logout{
+    margin-left: .5rem;
+    color: #4a4a4a;
+}
+
+.links{
+    background-color: #d2d4d8;
+    text-align: right;
+
+}
+
+.home{
+    color: #4a4a4a;
+    margin-right: .5rem;
+     
+}
+
+.new-hire{
+margin-left: 2rem;
+margin-right: .5rem; 
+color: #4a4a4a;
+    
+}
+ 
+.hello{
+    font-size: 50px;
+}
+.staff{
+justify-content: center;
+}
+
+/* employee_panel */
+
+.name{
+margin-bottom: 1rem;
+}
+
+.nav{
+    display: flex;
+    justify-content: right;
+}

@@ -1,5 +1,18 @@
-from home page with nav bar determine if user or admin
-direct to adimin veiw or user view. 
 
-1) write test view to render a template.
-2) make view that determines which template to render. 
+Staff
+-generate invitation email
+-option to set employee as staff
+-review the employees input
+
+
+New employee
+-review submitted input
+-edit already submitted input
+-store in a file that is emailed to employee and staff
+
+Login page
+-login link in the nav bar
+
+
+    
+

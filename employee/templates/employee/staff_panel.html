@@ -1,19 +1,40 @@
 {% extends "base.html" %}
-
 {% block content %}
-<a href="{% url 'employee:add_employee' %}">Add new new hire</a>
-<a href="{%url 'registration:home'%}"> home </a>
+<nav class="links">
+    <a class="home" href="{%url 'registration:home'%}"> home </a>
+    <a class="new-hire" href="{% url 'employee:add_employee' %}">Add new new hire</a>
+</nav>
+<div class="center-container">
 
-{% comment %} create a form with a button to relmove existing users {% endcomment %}
-<h1>Staff Panel</h1>
-<h3> existing users</h3> 
+    <div>
 
-{% for user in users %}
+        <div class="hello">
+            Hello {{user.username}}
+        </div>
 
-<div>
-    <div>{{user.username}}</div>
-    <a href="{% url 'employee:remove_employee' pk=user.pk %}">Delete</a>
+        <div class="staff">
+            <h1>Staff Panel</h1>
+        </div>
+
+
+
+        <table class="existing-users" style="widows: 100px;">
+            <tr> 
+                <th>existing users</th>
+                <th>Remove</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td class="users">
+                    {{user.username}}
+                </td>
+                <td>
+                    <a href="{% url 'employee:remove_employee' pk=user.pk %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
 
-{% endfor %}
-{% endblock content %}  
+{% endblock content %}

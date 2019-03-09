@@ -1,13 +1,46 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-<a href="{% url 'employee:staff_panel' %}">Back to staff_panel</a>
- 
- <h1>Add employee</h1>
+<link rel="stylesheet" href="{%static 'css/registration.css' %}">
+<div class="back">
+    <a class="back-link" href="{% url 'employee:staff_panel' %}">Back to Staff Panel</a>
+</div>
 
-<form method="post">
-{% csrf_token %}
-{{ form.as_p }}
+<div class="Tile">
 
-<button type="submit">Login</button>
-</form>
- {% endblock  %}
+</div>
+<div class="center-container">
+    <div class="add-employee">
+        <form method="post">
+            {% csrf_token %}
+            <div class="add-employee-info">
+                <p><label for="id_first_name"></label> <input placeholder="First Name" type="text" name="first_name" class="input"
+                        id="id_first_name"></p>
+                <p><label for="id_last_name"></label> <input placeholder="Last Name" type="text" name="last_name" class="input"
+                        id="id_last_name"></p>
+                <p><label for="id_username"></label> <input placeholder="Username" type="text" name="username" maxlength="150"
+                        autofocus="" class="input" id="id_username">
+                    <span class="helptext">Required. 150 characters or fewer. Letters,
+                        digits and
+                        @/./+/-/_ only.</span></p>
+            </div>
+            <p><label for="id_email"></label> <input placeholder="Email" type="email" name="email" class="input" id="id_email"></p>
+            <p><label for="id_password1"></label> <input placeholder="Password" type="password" name="password1" class="input"
+                    id="id_password1">
+                <span class="helptext"></span></p>
+            <ul>
+                <li>Your password can't be too similar to your other personal information.</li>
+                <li>Your password must contain at least 8 characters.</li>
+                <li>Your password can't be a commonly used password.</li>
+                <li>Your password can't be entirely numeric.</li>
+            </ul>
+            <p></p>
+            <p><label for="id_password2">Password confirmation:</label> <input placeholder="" type="password" name="password2"
+                    class="input" id="id_password2"> <span class="helptext">Enter the same password as before, for
+                    verification.</span></p>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

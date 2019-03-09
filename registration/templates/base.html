@@ -1,22 +1,33 @@
+{% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
+    <link rel="stylesheet" href="{%static 'css/registration.css' %}">
 </head>
+
 <body>
-    <a href = '{%url "registration:sign_out"%}'>logout</a>
-{% block content %}
-{% if user.is_authenticated %}
+    <nav>
+        <a class="logout" href='{%url "registration:sign_out"%}'>logout</a>
+        {% block content %}
+        {% if user.is_authenticated %}
+    
+        <div>
+            {{user.username}} is logged in
+        </div>
+    
+        {% else %}
+        <div>
+            <p>You are not logged in<p>
+                    <a class="login" href="/accounts/login">login</a>
+        </div>
+        {% endif %}
+    </nav>
 
-{{user.username}} is logged in
-
-{% else %}
-
-<p>You are not logged in<p>
-<a href="/accounts/login">login</a>
-{% endif %}
-{% endblock content %}
+    {% endblock content %}
 </body>
+
 </html>

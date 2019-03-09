@@ -1,3 +1,29 @@
 {% extends "base.html" %}
-
 <h1>Employee Panel</h1>
+{% block content %}
+<div class="links">
+<a class="home" href="{%url 'registration:home'%}"> home </a>
+</div>
+
+<div class="center-container">
+    <ul>
+        <li class="name">user: {{user.username}} </li>
+        <li>Address: {{user.employee.address}}<input type="text"></li>
+        <li>Telephone: {{user.employee.telephone}}<input type="text"></li>
+        <li>Job Title: {{user.employee.job_title}}<input type="text"></li>
+        <li>Start Date: {{user.employee.start_date}}<input type="text"></li>
+        {% comment %} <li>Upload Resume{{user.employee.file}}<input type="text"></li> {% endcomment %}
+
+    </ul>
+</div>
+<div class="center-container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label>Upload Resume:</label>
+            <input name="file" type="file">
+        </div>
+        <button>Upload</button>
+    </form>
+</div>
+{% endblock content %}
